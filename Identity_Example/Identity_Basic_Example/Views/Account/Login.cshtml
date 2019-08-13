@@ -1,0 +1,24 @@
+﻿@model Identity_Basic_Example.ViewModels.LoginViewModel
+
+<h2>Մուտք գործել համակարգ</h2>
+<form method="post" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email" class="col-form-label"></label><br />
+        <input asp-for="Email" class="form-control-sm"/>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Password" class="col-form-label"></label><br />
+        <input asp-for="Password" class="form-control-sm"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe" class="form-check-label"></label>
+        <input asp-for="RememberMe" class="form-check"/>
+    </div>
+    <div>
+        <input type="submit" value="Մուտք գործել" class="btn btn-primary"/>
+    </div>
+</form>
+

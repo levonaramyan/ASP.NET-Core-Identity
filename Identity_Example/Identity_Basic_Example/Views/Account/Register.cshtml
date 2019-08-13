@@ -4,27 +4,27 @@
 <form method="post" asp-controller="Account" asp-action="Register">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
+        <label asp-for="Email" class="col-form-label-sm"></label><br />
+        <input asp-for="Email" class="form-control-sm"/>
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="Year"></label><br />
-        <input asp-for="Year" />
+        <label asp-for="Year" class="col-form-label-sm"></label><br />
+        <input asp-for="Year" class="form-control-sm"/>
         <span asp-validation-for="Year"></span>
     </div>
     <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
+        <label asp-for="Password" class="col-form-label-sm"></label><br />
+        <input asp-for="Password" class="form-control-sm"/>
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="PasswordConfirm"></label><br />
-        <input asp-for="PasswordConfirm" />
+        <label asp-for="PasswordConfirm" class="col-form-label-sm"></label><br />
+        <input asp-for="PasswordConfirm" class="form-control-sm"/>
         <span asp-validation-for="PasswordConfirm"></span>
     </div>
     <div>
-        <input type="submit" value="Գրանցել"/>
+        <input type="submit" value="Գրանցել" class="btn btn-success"/>
     </div>
 </form>
 
