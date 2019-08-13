@@ -26,9 +26,11 @@ namespace Identity_Basic_Example
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configuring the service of DB context
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // Configuring the service of Identity with our custom User class and our configured DB service
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
@@ -51,6 +53,8 @@ namespace Identity_Basic_Example
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            // Added Authentication Middleware
             app.UseAuthentication();
 
             app.UseMvc(routes =>

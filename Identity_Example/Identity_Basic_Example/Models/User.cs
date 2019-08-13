@@ -8,6 +8,6 @@ namespace Identity_Basic_Example.Models
 {
     public class User : IdentityUser
     {
-        public int year { get; set; }
+        public int Year { get; set; }
     }
 }
