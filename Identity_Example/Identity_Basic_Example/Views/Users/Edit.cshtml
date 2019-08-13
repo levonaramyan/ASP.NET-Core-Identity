@@ -1,0 +1,25 @@
+﻿@model Identity_Basic_Example.ViewModels.EditUserViewModel
+
+@{
+    ViewData["Title"] = "Փոփոխել օգտատիրոջ տվյալները";
+}
+
+<h1>Փոփոխել օգտատիրոջ տվյալները</h1>
+<form asp-action="Edit" asp-controller="Users" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <input asp-for="Id" hidden/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input type="number" asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Հաստատել փոփոխությունը" />
+    </div>
+</form>
+
