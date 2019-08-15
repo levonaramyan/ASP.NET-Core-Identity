@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Identity_Basic_Example.Models.User>
+
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<h1>Օգտատերերի ցուցակ</h1>
+
+<table class="table">
+    @foreach(User user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>
+                <a asp-action="Edit" asp-route-userId="@user.Id" class="btn btn-sm btn-primary">Թույլատրված դերեր</a>
+            </td>
+        </tr>
+    }
+</table>
