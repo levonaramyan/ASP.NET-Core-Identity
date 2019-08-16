@@ -32,7 +32,8 @@ namespace Identity_Basic_Example
 
             // Configuring the service of Identity with our custom User class and our configured DB service
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationContext>();
+                .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

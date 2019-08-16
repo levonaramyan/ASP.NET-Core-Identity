@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Identity_Basic_Example.Models;
+using Identity_Basic_Example.Services;
 using Identity_Basic_Example.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,19 @@ namespace Identity_Basic_Example.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action(
+                        "ConfirmEmail",
+                        "Account",
+                        new { userId = user.Id, code = code },
+                        protocol: HttpContext.Request.Scheme);
+
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(
+                        model.Email,
+                        "Confirm Registration",
+                        $"Գրանցումը հաստատելու համար անցեք նշված հղմամբ․ <a href='{callbackUrl}'>հաստատել</a>");
+
                     return RedirectToAction("Index");
                 } else
                 {
