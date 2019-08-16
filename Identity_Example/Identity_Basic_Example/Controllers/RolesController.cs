@@ -103,15 +103,15 @@ namespace Identity_Basic_Example.Controllers
 
                 var allRoles = _roleManager.Roles.ToList();
 
-                var addedRoles = roles.Except(userRoles);
+                var addedRoles = roles.Except(userRoles).ToList();
 
-                var deletedRoles = userRoles.Except(roles);
+                var deletedRoles = userRoles.Except(roles).ToList();
 
                 await _userManager.AddToRolesAsync(user, addedRoles);
 
                 await _userManager.RemoveFromRolesAsync(user, deletedRoles);
 
-                return View("UserList");
+                return RedirectToAction("UserList");
             }
 
             return NotFound();
