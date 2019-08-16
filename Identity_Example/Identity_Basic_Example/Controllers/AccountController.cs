@@ -257,7 +257,7 @@ namespace Identity_Basic_Example.Controllers
 
             if(result.Succeeded)
             {
-                return View("ResetPasswordConfirmed");
+                return View("ResetPasswordConfirmation");
             } else
             {
                 foreach (var error in result.Errors)
