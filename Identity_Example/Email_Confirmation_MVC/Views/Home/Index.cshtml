@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if(User.Identity.IsAuthenticated)
+{
+    <p>Hi @User.Identity.Name</p>
+    <form asp-action="LogOff" asp-controller="Account" method="post">
+        <button type="submit" class="btn btn-danger">Դուրս գալ</button>
+    </form>
+} else
+{
+    <a asp-action="Login" asp-controller="Account" class="btn btn-primary col-xl-2">Մուտք գործել</a><br />
+    <a asp-action="Register" asp-controller="Account" class="btn btn-success col-xl-2">Գրանցվել</a>
+}
